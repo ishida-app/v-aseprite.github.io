@@ -183,7 +183,7 @@ body {
   transition: 0.3s;
 }
 .card-social a {
-  color: #437ddb;
+  color: #7289DA;
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -196,7 +196,7 @@ body {
   margin-right: 10px;
 }
 .card-social a:hover svg {
-  fill: #0e57cc;
+  fill: rgb(8, 71, 172);
 }
 .card-social a:last-child {
   margin-right: 0;
