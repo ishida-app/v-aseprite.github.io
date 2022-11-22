@@ -1,13 +1,20 @@
-// Dark & Light toggle
+const buttons = document.querySelectorAll(".card-buttons button");
+const sections = document.querySelectorAll(".card-section");
+const card = document.querySelector(".card");
 
-document.querySelector(".day-night input").addEventListener("change", () => {
-  document.querySelector("body").classList.add("toggle");
-  setTimeout(() => {
-    document.querySelector("body").classList.toggle("light");
+const handleButtonClick = e => {
+  const targetSection = e.target.getAttribute("data-section");
+  const section = document.querySelector(targetSection);
+  targetSection !== "#about" ?
+  card.classList.add("is-active") :
+  card.classList.remove("is-active");
+  card.setAttribute("data-state", targetSection);
+  sections.forEach(s => s.classList.remove("is-active"));
+  buttons.forEach(b => b.classList.remove("is-active"));
+  e.target.classList.add("is-active");
+  section.classList.add("is-active");
+};
 
-    setTimeout(
-      () => document.querySelector("body").classList.remove("toggle"),
-      10
-    );
-  }, 5);
+buttons.forEach(btn => {
+  btn.addEventListener("click", handleButtonClick);
 });
