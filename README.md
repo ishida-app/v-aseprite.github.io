@@ -1,7 +1,3 @@
 # impvster.github.io
 
-A simple about me, tehee :3
-
-:rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3:
-:rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3:
-:rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3::rage3:
+![a simple about me to practice some HTML/CSS/JS skills](https://i.imgur.com/Drn4HIF.png)
