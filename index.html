@@ -33,9 +33,44 @@
       <ul>
         <li><a href="#" title="">Apply</a></li>
         <li><a href="https://dsc.gg/Voyageurs" title="">Discord</a></li>
-        <li><a href="about.html" title="">About Us</a></li>
+        <li><a href="#" id="about-link" title="">About Us</a></li>
       </ul>
     </nav>
+
+    <script>
+      const aboutLinks = [
+        "about.html",
+        "about.html",
+        "about.html",
+        "about_.html",
+        "about.html",
+        "about.html",
+        "about.html",
+        "about.html",
+        "about.html",
+        "about.html"
+      ];
+    
+      const aboutLink = document.getElementById("about-link");
+      aboutLink.addEventListener("click", function(event) {
+        event.preventDefault(); // prevent the default behavior of the link
+        const randomIndex = Math.floor(Math.random() * aboutLinks.length);
+        const randomLink = aboutLinks[randomIndex];
+        window.location.href = randomLink;
+      });
+    </script>
+
+<audio id="door-knock" src="open.mp3"></audio>
+<script>
+  const audio = document.getElementById('door-knock');
+  
+  const random = Math.random();
+
+  if (random < 0.1) {
+    audio.play();
+  }
+</script>
+
 
     <p>System Administrator Integrated Message System (SAIMS)</p>
     <p>System Administrator (SYSADM) - Aseprite</p>
@@ -48,7 +83,7 @@
 </div>
 <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://static.tumblr.com/maopbtg/oimmiw86r/jquery.autosize-min.js'></script><script  src="./script.js"></script>
+<script src='https://static.tumblr.com/maopbtg/oimmiw86r/jquery.autosize-min.js'></script>
 
 </body>
 </html>
