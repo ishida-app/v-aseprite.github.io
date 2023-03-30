@@ -295,3 +295,7 @@ a.button:hover {
 }
 
 .upper { text-transform: uppercase; }
+
+.image-hover:hover {
+	color: #2f6182;
+}
