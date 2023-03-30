@@ -1,66 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>[voyageurs]</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="./style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>[voyageurs] - Loading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <style>
+      #eye {
+        width: 100px;
+        height: 100px;
+        background-image: url('https://i.imgur.com/J4Cr5Zl.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: glitch 0.2s infinite;
+      }
 
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="overlay"></div>
-<div class="scanline"></div>
-<div class="wrapper">
-  <div class="content clearfix">
-
-    <header class="site clearfix">
-      <div class="col one">
-        <img src="https://i.imgur.com/H9BpVef.png" alt="voyageurs" width="740" height="729" id="logo-v" />
-      </div>
-      <div class="col two">
-        <h4>voyageurs (tm) <br /> <b>M</b>odular <b>E</b>ncryption <b>O</b>perations <b>W</b>idget (MEOW)</h4>
+      /* Create the glitchy animation for the eye */
+      @keyframes glitch {
+        0% {
+          transform: translate(-50%, -50%);
+        }
+        5% {
+          transform: translate(-48%, -51%);
+        }
+        10% {
+          transform: translate(-50%, -52%);
+        }
+        15% {
+          transform: translate(-51%, -50%);
+        }
+        20% {
+          transform: translate(-52%, -49%);
+        }
+        25% {
+          transform: translate(-50%, -50%);
+        }
+        30% {
+          transform: translate(-49%, -51%);
+        }
+        35% {
+          transform: translate(-51%, -52%);
+        }
+        40% {
+          transform: translate(-52%, -50%);
+        }
+        45% {
+          transform: translate(-50%, -49%);
+        }
+        50% {
+          transform: translate(-49%, -50%);
+        }
+        55% {
+          transform: translate(-50%, -52%);
+        }
+        60% {
+          transform: translate(-51%, -49%);
+        }
+        65% {
+          transform: translate(-49%, -48%);
+        }
+        70% {
+          transform: translate(-52%, -50%);
+        }
+        75% {
+          transform: translate(-50%, -51%);
+        }
+        80% {
+          transform: translate(-49%, -50%);
+        }
+        85% {
+          transform: translate(-51%, -48%);
+        }
+        90% {
+          transform: translate(-50%, -52%);
+        }
+        95% {
+          transform: translate(-52%, -50%);
+        }
+        100% {
+          transform: translate(-50%, -50%);
+        }
         
-        <p>----------------------------------------</p>
-        <p>MEOW v 1.0.0</p>
-        <p>(c)2023 voyageur Industries</p>
-        <p>- V Server -</p>
+      }
+
+      .text {
+        position: absolute;
+        color: red;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 0 0 5px red;
+        animation: glitch 1s infinite;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="scanline"></div>
+    <div class="wrapper">
+      <div class="content clearfix">
+        <header class="site clearfix">
+          <!-- Add the eye image and the line -->
+          <div id="eye"></div>
+          <div id="line"></div>
+          <div id="text-container"></div>
+
+          <script>
+            const textMessages = [
+              "what have you done",
+              "what have you done",
+              "what have you done",
+              "you killed her",
+              "you killed her",
+              "you killed her",
+              "go back",
+              "go back",
+              "go back",
+              "save",
+              "save",
+              "save",
+              "stop",
+              "stop",
+              "stop"
+            ];
+            const textContainer = document.getElementById("text-container");
+            function showRandomText() {
+              const randomIndex = Math.floor(Math.random() * textMessages.length);
+              const randomText = textMessages[randomIndex];
+              const positionX = Math.floor(Math.random() * 90) + 5;
+              const positionY = Math.floor(Math.random() * 90) + 5;
+              const delay = Math.floor(Math.random() * 1000) + 500;
+          
+              const newText = document.createElement("div");
+              newText.classList.add("text");
+              newText.style.left = `${positionX}%`;
+              newText.style.top = `${positionY}%`;
+              newText.style.animationDelay = `${delay}ms`;
+              newText.textContent = randomText;
+              textContainer.appendChild(newText);
+            }
+          
+            // Call the showRandomText function every second
+            setInterval(showRandomText, 50);
+          </script>
+          <!-- Redirect to the about.html page after 2.8 seconds -->
+          <script>
+            setTimeout(function () {
+              window.location.href = 'about.html';
+            }, 2800);
+          </script>
+        </header>
       </div>
-    </header>
-
-    <nav class="site clear">
-      <ul>
-        <li><a href="#" title="">Apply</a></li>
-        <li><a href="https://dsc.gg/Voyageurs" title="">Discord</a></li>
-        <li><a href="#" onclick="goBack()" title=""><svg width="24" height="24" viewBox="0 0 24 24" style="vertical-align: -4px;"><path d="M20,11H7.83l5.59-5.59L12,4l-8,8l8,8l1.41-1.41L7.83,13H20v-2z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" fill="#FFFFFF" shape-rendering="crispEdges"/></svg> Go back</a></li>
-
-
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
-      </ul>
-    </nav>
-
-    <p>System Administrator Integrated Message System (SAIMS)</p>
-    <p>System Administrator (SYSADM) - Aseprite</p>
-    <p class="clear"><br /></p>
-
-    <p>Welcome to "Voyageurs". Our guild is dedicated to uncovering the game's rich and captivating lore, as well as discovering new lands and hidden secrets that lie beyond the beaten path. We are a diverse group of adventurers who share a passion for exploration and a curiosity for the unknown.</p>
-    <br>
-    <p>We also aim to be known for our exceptional ability to analyze and adapt both new and old game mechanics to our advantage so that through this process, we create unique combinations and builds that have yet to be discovered by any other players. Our skill and innovation set us apart from the rest, as we constantly strive to push the boundaries of what is possible in the game.</p>
-    <br>
-    <p>As a guild, we remain neutral towards all other factions and guilds in the game, unless provoked. We believe that our exploration and discovery should not be hindered by petty conflicts or disputes, and as such, we prefer to keep to ourselves. However, we are always willing to collaborate and share our findings with other guilds, should the opportunity arise.</p>
-    <br>
-    <p>Whilst being a part of "Voyageurs", you will have the opportunity to explore the game's vast and beautiful world with like-minded people, and uncover the stories or secrets that lie within. You will also be part of a close-knit community of explorers, who share a love for adventure and discovery.</p>
-
-</div>
-</div>
-<!-- partial -->
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://static.tumblr.com/maopbtg/oimmiw86r/jquery.autosize-min.js'></script><script  src="./script.js"></script>
-
-</body>
+    </div>
+  </body>
 </html>
