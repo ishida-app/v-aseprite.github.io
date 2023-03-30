@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>[voyageurs] - Loading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <style>
+      #eye {
+        width: 100px;
+        height: 100px;
+        background-image: url('https://i.imgur.com/J4Cr5Zl.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: glitch 0.2s infinite;
+      }
+
+      /* Create the glitchy animation for the eye */
+      @keyframes glitch {
+        0% {
+          transform: translate(-50%, -50%);
+        }
+        5% {
+          transform: translate(-48%, -51%);
+        }
+        10% {
+          transform: translate(-50%, -52%);
+        }
+        15% {
+          transform: translate(-51%, -50%);
+        }
+        20% {
+          transform: translate(-52%, -49%);
+        }
+        25% {
+          transform: translate(-50%, -50%);
+        }
+        30% {
+          transform: translate(-49%, -51%);
+        }
+        35% {
+          transform: translate(-51%, -52%);
+        }
+        40% {
+          transform: translate(-52%, -50%);
+        }
+        45% {
+          transform: translate(-50%, -49%);
+        }
+        50% {
+          transform: translate(-49%, -50%);
+        }
+        55% {
+          transform: translate(-50%, -52%);
+        }
+        60% {
+          transform: translate(-51%, -49%);
+        }
+        65% {
+          transform: translate(-49%, -48%);
+        }
+        70% {
+          transform: translate(-52%, -50%);
+        }
+        75% {
+          transform: translate(-50%, -51%);
+        }
+        80% {
+          transform: translate(-49%, -50%);
+        }
+        85% {
+          transform: translate(-51%, -48%);
+        }
+        90% {
+          transform: translate(-50%, -52%);
+        }
+        95% {
+          transform: translate(-52%, -50%);
+        }
+        100% {
+          transform: translate(-50%, -50%);
+        }
+        
+      }
+
+      .text {
+        position: absolute;
+        color: red;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 0 0 5px red;
+        animation: glitch 1s infinite;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="scanline"></div>
+    <div class="wrapper">
+      <div class="content clearfix">
+        <header class="site clearfix">
+          <!-- Add the eye image and the line -->
+          <div id="eye"></div>
+          <div id="line"></div>
+          <div id="text-container"></div>
+
+          <script>
+            const textMessages = [
+              "what have you done",
+              "what have you done",
+              "what have you done",
+              "you killed her",
+              "you killed her",
+              "you killed her",
+              "go back",
+              "go back",
+              "go back",
+              "save",
+              "save",
+              "save",
+              "stop",
+              "stop",
+              "stop"
+            ];
+            const textContainer = document.getElementById("text-container");
+            function showRandomText() {
+              const randomIndex = Math.floor(Math.random() * textMessages.length);
+              const randomText = textMessages[randomIndex];
+              const positionX = Math.floor(Math.random() * 90) + 5;
+              const positionY = Math.floor(Math.random() * 90) + 5;
+              const delay = Math.floor(Math.random() * 1000) + 500;
+          
+              const newText = document.createElement("div");
+              newText.classList.add("text");
+              newText.style.left = `${positionX}%`;
+              newText.style.top = `${positionY}%`;
+              newText.style.animationDelay = `${delay}ms`;
+              newText.textContent = randomText;
+              textContainer.appendChild(newText);
+            }
+          
+            // Call the showRandomText function every second
+            setInterval(showRandomText, 50);
+          </script>
+          <!-- Redirect to the about.html page after 2.8 seconds -->
+          <script>
+            setTimeout(function () {
+              window.location.href = 'about.html';
+            }, 2800);
+          </script>
+        </header>
+      </div>
+    </div>
+  </body>
+</html>
