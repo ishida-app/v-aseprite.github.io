@@ -143,6 +143,16 @@
           
             setInterval(showRandomText, 50);
           </script>
+          <audio id="door-knock" src="open.mp3"></audio>
+          <script>
+                const audio = document.getElementById('door-knock');
+
+                const random = Math.random();
+
+                if (random < 0.1) {
+                  audio.play();
+                }
+          </script>
           <script>
             setTimeout(function () {
               window.location.href = 'about.html';
